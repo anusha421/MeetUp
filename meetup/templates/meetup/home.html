@@ -37,11 +37,11 @@
             {% csrf_token %}
             <h4>When are you ready to MeetUp?</h4>
             <label for="slot-date">Date: </label>
-            <input type="date" id="slot-date" name="slot-date"><br>
+            <input required type="date" id="slot-date" name="slot-date"><br>
             <h6>Start Time</h6>
-            <input type="time" id="start-time" name="start-time"><br>
+            <input required type="time" id="start-time" name="start-time"><br>
             <h6>End Time</h6>
-            <input type="time" id="end-time" name="end-time">
+            <input required type="time" id="end-time" name="end-time">
             <br>
             <input id="create-task" type="submit" value="Create Task" class="btn btn-primary" />
         </form>
