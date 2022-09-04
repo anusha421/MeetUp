@@ -1,0 +1,26 @@
+{% extends 'meetup/layout.html' %}
+
+{% load static %}
+{% block title %}
+    <title> Create Slot </title>
+{% endblock %}
+{% block body %}
+    {% if user.is_authenticated %}
+    <div>
+        <form action="{% url 'create_slot' %}" name="create-slot-form" class="create-slot-form" method="POST">
+            {% csrf_token %}
+            <h4>When are you ready to MeetUp?</h4>
+            <h6>Date</h6>
+            <input type="date" id="slot-date" name="slot-date"><br><br>
+            <h6>Start Time</h6>
+            <input type="time" id="start-time" name="start-time"><br><br>
+            <h6>End Time</h6>
+            <input type="time" id="end-time" name="end-time"><br><br>
+            
+            <input id="create-task" type="submit" value="Create Task" class="btn btn-primary"/>
+        </form>
+    </div><br>
+    {% else %}
+        <h4><center><a href="{% url 'login_view' %}">Login</a> to create a task.</center></h4>
+    {% endif %}
+{% endblock %}

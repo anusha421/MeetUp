@@ -1,0 +1,89 @@
+{% extends 'meetup/layout.html' %}
+{%load static%}
+{% block title %}
+<title>MeetUp!</title>
+{% endblock %}
+
+{% block body %}
+{% if user.is_authenticated %}
+<style>
+    #box1{
+        display: flex;
+        padding: 20px;
+        height: 680px;
+    }
+    .scheduleform{
+        margin: 20 0;
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+    }
+    .slots{
+        /* border: solid #735fcd 2px; */
+        border-radius: 10px;
+        margin: 0 2%;
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow-y: scroll;
+        /* overflow: hidden; */
+    }
+
+</style>
+<div id="box1">
+    <div class="scheduleform">
+        <form action="{% url 'create_slot' %}" name="create-slot-form" class="create-slot-form" method="POST">
+            {% csrf_token %}
+            <h4>When are you ready to MeetUp?</h4>
+            <label for="slot-date">Date: </label>
+            <input type="date" id="slot-date" name="slot-date"><br>
+            <h6>Start Time</h6>
+            <input type="time" id="start-time" name="start-time"><br>
+            <h6>End Time</h6>
+            <input type="time" id="end-time" name="end-time">
+            <br>
+            <input id="create-task" type="submit" value="Create Task" class="btn btn-primary" />
+        </form>
+        <div class="book-btn">
+            <a href="{% url 'setup' %}">Book a Meet</a>
+        </div>
+    </div>
+    <div class="slots">
+        <h1 class="heading"> Your slots </h1><br>
+        {% if slots %}
+        {% for slot in slots %}
+        {% if now > slot.endtime %}
+        <div class="slot past-slot ">
+            <strong>{{ slot.date }}</strong> <br>
+            {{slot.starttime}} to {{slot.endtime}}
+        </div><br>
+        {% else %}
+        {% if slot.booked %}
+        <div class=" slot booked-slot">
+            <strong>{{ slot.date }}</strong> <br>
+            {{slot.starttime}} to {{slot.endtime}}
+            <button>Cancel</button>
+        </div><br>
+        {% else %}
+        <div class=" slot unbooked-slot">
+            <strong>{{ slot.date }}</strong><br>
+            {{slot.starttime}} to {{slot.endtime}}
+        </div><br>
+        {% endif %}
+        {% endif %}
+
+
+        {% endfor %}
+        {% else %}
+        <h1>You dont have any meeting slots yet. <br> <a href="{% url 'create_slot' %}">Create a slot</a> or <a
+                href="{% url 'setup' %}"> set up a meet</a></h1>
+        {% endif %}
+    </div>
+</div>
+{% else %}
+<center>
+    <h1><a href="{% url 'login_view' %}">Login</a> to set up meetings</h1>
+</center>
+{% endif %}
+{% endblock %}

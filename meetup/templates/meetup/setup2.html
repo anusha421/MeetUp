@@ -1,0 +1,33 @@
+{% extends 'meetup/layout.html' %}
+{%load static%}
+
+{% block title %}
+    <title>SetUp</title>
+{% endblock %}
+
+{% block body %}
+    {% if user.is_authenticated %}
+        <div class="cd card">
+            <div class="card-form">
+                <!-- Card form template -->
+                <div class="slots">
+                    <h4>Who would you like to MeetUp with?</h4>
+                    
+                    {% if has_slots %}
+                        {% if is_booked %}
+                            <h1>All the free slots of this user are currently booked.</h1>
+                        {% else %}
+                            {% for slot in slots %}
+                                <div class="slot">{{ slot.date }} <br> {{slot.starttime}} to {{slot.endtime}}</div><br>
+                            {% endfor %}
+                        {% endif %}
+                    {% else %}
+                            <h1>User does not have any free slots in the calender</h1>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <center><h1><a href="{% url 'login_view' %}">Login</a> to set up meetings</h1></center>
+    {% endif %}
+{% endblock %}

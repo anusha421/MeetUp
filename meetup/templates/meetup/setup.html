@@ -1,0 +1,28 @@
+{% extends 'meetup/layout.html' %}
+{%load static%}
+
+{% block title %}
+    <title>SetUp</title>
+{% endblock %}
+
+{% block body %}
+    {% if user.is_authenticated %}
+        <div class="cd card">
+            <div class="card-form">
+                <!-- Card form template -->
+                <h4>Who would you like to MeetUp with?</h4>
+
+                <form action="{% url 'setup' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-item">
+                        <label for="username">Username</label>
+                        <input id="enter" name="setup-admin" type="text" />
+                    </div>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    {% else %}
+        <center><h1><a href="{% url 'login_view' %}">Login</a> to set up meetings</h1></center>
+    {% endif %}
+{% endblock %}

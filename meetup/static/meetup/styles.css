@@ -1,0 +1,244 @@
+/* Reset */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+* {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+  }
+
+  body {
+    /* padding: 100px 20px; */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    line-height: 1.6;
+    background-color: #f4f3fb;
+  }
+  
+  .navbar {
+    background-color: #735fcd;
+}
+
+  h4,
+  h5 {
+    font-weight: 500;
+  }
+  
+  h4 {
+    font-size: 28px;
+  }
+  
+  h5 {
+    font-size: 18px;
+  }
+  
+  p {
+    font-size: 14px;
+  }
+  
+  button {
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    background-color: #735fcd;
+    border: none;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    opacity: 1;
+  }
+  
+  .cd{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .card {
+    padding: 30px;
+    margin: auto;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 960px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: white;
+  }
+  
+  .card .card-features {
+    color: white;
+    padding: 60px;
+    border-radius: 5px 0 0 5px;
+    background-color: #735fcd;
+  }
+  
+  .card .card-features .card-feature {
+    margin-bottom: 30px;
+    max-width: 250px;
+    padding-right: 30px;
+  }
+  .card .card-features .card-feature span {
+    display: block;
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+    line-height: 35px;
+    text-align: center;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+
+  
+  .card .card-features .card-feature h5 {
+    margin-bottom: 5px;
+  }
+  
+  .card .card-form {
+    flex: 1;
+    padding: 80px;
+  }
+  
+  .card .card-form form {
+    margin: 20px 0;
+  }
+  
+  .card .card-form .form-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .card .card-form .form-check {
+    color: #444;
+    margin-bottom: 20px;
+  }
+  
+  .card .card-form .form-check input {
+    margin-right: 10px;
+  }
+  
+  .card .card-form input::placeholder {
+    font-size: 14px;
+  }
+  
+  .card .card-form .form-item label {
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .card .card-form .form-item input {
+    padding: 15px 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 900px) {
+    body {
+      padding: 40px 20px;
+    }
+  
+    .card {
+      flex-direction: row;
+      padding: 20px;
+    }
+  
+    .card .card-features {
+      padding: 30px;
+    }
+  
+    .card .card-form {
+      padding: 60px 10px;
+    }
+  }
+  
+  .card{
+    flex-direction: row;
+  }
+
+  .create-slot-form, .book-btn{
+    padding: 10px;
+    margin:2%;
+    border: 2px solid #735fcd;
+    border-radius: 10px;
+    display:flex;
+    /* max-width: 40%; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .book-btn{
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: black;
+    text-decoration: none;
+  }
+  .book-btn:hover {
+    background-color: #735fcd;
+    color: white;
+  }
+  .book-btn a:hover{
+    background-color: #735fcd;
+    color: white;
+  }
+  .book-btn a{
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+  }
+  .create-slot-form input{
+    min-width: 60%;
+    min-height: 2.5rem;
+  }
+
+  .create-slot-form h4{
+    color: #735fcd;
+    font-weight: 700;
+    margin: 0.5rem;
+  }
+
+  .slots{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .slots .heading{
+    margin-top: 2rem;
+    text-align: center;
+    min-width:90%;
+    background-color:#735fcd;
+    color: white;
+    padding:10px 0;
+    font-weight: 700;
+  }
+
+  .slots .slot{
+    min-width: 90%;
+    padding: 0.7rem 0;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: #50C878;
+  }
+
+  .example::-webkit-scrollbar {
+    display: none;
+  }
+
+  .example {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }

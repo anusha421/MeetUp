@@ -1,0 +1,75 @@
+{% extends 'meetup/layout.html' %}
+
+{% block title %}
+    <title>Login</title>
+{% endblock %}
+
+{% block body %}    
+    <div class="cd">
+        <div class="card">
+            <div class="card-features">
+                <div class="card-feature">
+                    <span>&check;</span>
+                    <h5>Quick and free sign-up</h5>
+                    <p>Enter your email address to create an account</p>
+                </div>
+
+                <div class="card-feature">
+                    <span>&check;</span>
+                    <h5>Schedule Zoom Meetings</h5>
+                    <p>Choose a slot and book a zoom meet</p>
+                </div>
+
+                <div class="card-feature">
+                    <span>&check;</span>
+                    <h5>Add to Google Calendar</h5>
+                    <p>Link your Google Calendar and get reminder notifications</p>
+                </div>
+            </div>
+
+            <div class="card-form">
+                <!-- Card form template -->
+                <h4>Create your account</h4>
+
+                <form action="{% url 'register' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-item">
+                        <label for="email">Email</label>
+                        <input required type="email" name="email" placeholder="Enter your email address" />
+                    </div>
+
+                    <div class="form-item">
+                        <label for="full-name">Full Name</label>
+                        <input required type="full-name" name="name" placeholder="Enter your full name" />
+                    </div>
+
+                    <div class="form-item">
+                        <label for="username">Username</label>
+                        <input required type="username" name="username" placeholder="Enter username" />
+                    </div>
+
+                    <div class="form-item">
+                        <label for="password">Password</label>
+                        <input required type="password" name="password" placeholder="Enter your password" />
+                    </div>
+
+                    <div class="form-item">
+                        <label for="password">Confirm Password</label>
+                        <input required type="password" name="confirmation" placeholder="Re-Enter your password" />
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" id="get-updates" />
+                        <label for="get-updates">
+                            Remember Me
+                        </label>
+                    </div>
+                    
+                    Already have an account? <a href="{% url 'login_view' %}">Log In here.</a><br><br>
+
+                    <button type="submit">Create an account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
